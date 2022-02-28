@@ -10,8 +10,10 @@ namespace RT_ISICG
 		HitRecord hitRecord;
 		if ( p_scene.intersect( p_ray, p_tMin, p_tMax, hitRecord ) )
 		{
-			/// TODO ! cos theta...
-			return hitRecord._object->getMaterial()->getFlatColor();
+			/// TP1_Exo 3_2 :
+			float costheta = glm::dot( hitRecord._normal, -p_ray.getDirection());
+
+			return hitRecord._object->getMaterial()->getFlatColor() * std::max( costheta, 0.f );
 		}
 		else
 		{

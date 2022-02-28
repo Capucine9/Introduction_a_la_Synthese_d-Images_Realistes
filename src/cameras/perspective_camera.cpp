@@ -15,7 +15,14 @@ namespace RT_ISICG
 										  const float	p_aspectRatio )
 		: BaseCamera( p_position ), _fovy( p_fovy ), _aspectRatio( p_aspectRatio )
 	{
+		// TP1_Exo 4_1 :
 		/// TODO ! _u ? _v ? _w ?
+
+		_w = glm::normalize( p_position - p_lookAt );
+		_u = glm::cross( p_up, _w );
+		_v = glm::cross( _w, _u );
+
+		Vec3f direction = p_lookAt - p_position;
 
 		_updateViewport();
 	}
@@ -25,20 +32,18 @@ namespace RT_ISICG
 		/// TODO ! _viewportTopLeftCorner ?	_viewportU ? _viewportV ?
 		
 		// TP1_Exo2
-		float amount_v = glm::tan( glm::radians( _fovy ) / 2 ) * _focalDistance;
-		// vecteur associé à la distance précédente
-		Vec3f tmp_viewportV = _v * amount_v;
-		// vecteur partant du centre du viewport et allant jusqu'au bord droit du viewport
-		Vec3f tmp_viewportU = _u * amount_v * _aspectRatio;
+		float dist = glm::tan( glm::radians( _fovy ) / 2 ) * _focalDistance;
+		// vecteur vertical
+		Vec3f _viewportV2 = _v * dist;
+		// vecteur horizontal
+		Vec3f _viewportU2 = _u * dist * _aspectRatio;
 
-		// coordonnée du coin haut-gauche du viewport
-		// à partir du centre de la cam, déplacement en w pour obtenir le centre du viewport, puis déplacement en u et v
-		// pour obtenir le coin
-		_viewportTopLeftCorner = _position + _w * -_focalDistance + -tmp_viewportU + tmp_viewportV;
+		// coordonnée du coin en haut à gauche
+		_viewportTopLeftCorner = _position + _w * -_focalDistance + -_viewportU2 + _viewportV2;
 
-		// multiplier par deux pour que les vecteurs représente la largeur et la longueur du viewport
-		_viewportU = tmp_viewportU * 2.f;
-		_viewportV = tmp_viewportV * 2.f;
+		//vecteurs représentant la largeur et la longueur totale du viewport
+		_viewportU = _viewportU2 * 2.f;
+		_viewportV = _viewportV2 * 2.f;
 	}
 
 } // namespace RT_ISICG

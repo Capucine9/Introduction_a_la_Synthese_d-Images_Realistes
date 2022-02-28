@@ -53,15 +53,45 @@ namespace RT_ISICG
 			progressBar.next();
 		}*/
 
-		// TP1_Exo 2 :
+		// TP1_Exo 2_3 :
+		/* for ( int j = 0; j < height; j++ )
+		{
+			for ( int i = 0; i < width; i++ )
+			{
+				Ray ray = p_camera->generateRay( float( i + 0.5 ) / ( width - 1 ), float( j + 0.5 ) / ( height - 1 ) );
+				//p_texture.setPixel( i, j, ( ray.getDirection() + 1.f ) * 0.5f );
+				
+				//TP1_Exo 3_1 :
+				p_texture.setPixel( i, j, _integrator->Li( p_scene, ray, 0.0f, 10.0f ) );
+			}
+			progressBar.next();
+		}*/
+
+		
+		// TP1_Exo 5
 		for ( int j = 0; j < height; j++ )
 		{
 			for ( int i = 0; i < width; i++ )
 			{
-				Ray ray = p_camera->generateRay( float( i ) / ( width - 1 ), float( j ) / ( height - 1 ) );
-				p_texture.setPixel( i, j, ( ray.getDirection() + 1.f ) * 0.5f );
+				Vec3f moy_color = Vec3f(0, 0, 0);
+
+				for ( int k = 0; k < ( _nbPixelSamples ); k++ )
+				{
+					float random_i = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
+					float random_j = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
+
+					Ray ray
+						= p_camera->generateRay( float( i + random_i ) / ( width - 1 ),
+												 float( j + random_j ) / ( height - 1 ) );
+
+					moy_color += _integrator->Li( p_scene, ray, 0.0f, 10.0f );
+				}
+				
+				moy_color = moy_color * (1.f / _nbPixelSamples);
+				p_texture.setPixel( i, j, moy_color );
 			}
 			progressBar.next();
+
 		}
 
 		chrono.stop();
