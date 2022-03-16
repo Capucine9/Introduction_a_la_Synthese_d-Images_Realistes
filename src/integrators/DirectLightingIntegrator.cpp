@@ -11,7 +11,7 @@ namespace RT_ISICG
 	{
 		float costheta = glm::dot( hitRecord._normal, -p_direction );
 
-		Vec3f mtl = hitRecord._object->getMaterial()->getFlatColor() * p_radiance * costheta;
+		Vec3f mtl = hitRecord._object->getMaterial()->getFlatColor() * p_radiance * std::max(costheta, 0.f);
 
 		return mtl;
 
@@ -32,7 +32,7 @@ namespace RT_ISICG
 				Vec3f color = _directLighting( p_scene, ls._direction, ls._radiance, hitRecord );
 				somme_directLighting += color;
 			}
-			return somme_directLighting*200.f;
+			return somme_directLighting;
 		}
 		else
 		{

@@ -99,6 +99,9 @@ namespace RT_ISICG
 				
 				moy_color = moy_color * (1.f / _nbPixelSamples);
 				p_texture.setPixel( i, j, moy_color );
+
+				// TP2_Exo 3_3 :
+				//p_texture.setPixel( i, j, glm::clamp( moy_color, Vec3f( 0.f, 0.f, 0.f ), Vec3f( 1.f, 1.f, 1.f ) ) );
 			}
 			progressBar.next();
 
