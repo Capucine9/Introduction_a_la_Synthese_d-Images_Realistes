@@ -1,5 +1,6 @@
 #include "renderer.hpp"
 #include "integrators/ray_cast_integrator.hpp"
+#include "integrators/DirectLightingIntegrator.hpp"
 #include "utils/console_progress_bar.hpp"
 #include "utils/random.hpp"
 
@@ -14,6 +15,15 @@ namespace RT_ISICG
 		switch ( p_integratorType )
 		{
 		case IntegratorType::RAY_CAST:
+		{
+			_integrator = new RayCastIntegrator();
+			break;
+		}
+		case IntegratorType::DIRECT_LIGHT:
+		{
+			_integrator = new DirectLightingIntegrator();
+			break;
+		}
 		default:
 		{
 			_integrator = new RayCastIntegrator();
@@ -84,7 +94,7 @@ namespace RT_ISICG
 						= p_camera->generateRay( float( i + random_i ) / ( width - 1 ),
 												 float( j + random_j ) / ( height - 1 ) );
 
-					moy_color += _integrator->Li( p_scene, ray, 0.0f, 10.0f );
+					moy_color += _integrator->Li( p_scene, ray, 0.0f, 1000.0f );
 				}
 				
 				moy_color = moy_color * (1.f / _nbPixelSamples);

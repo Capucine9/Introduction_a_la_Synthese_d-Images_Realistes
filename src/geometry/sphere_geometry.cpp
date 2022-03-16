@@ -8,11 +8,11 @@ namespace RT_ISICG
 		
 		// equation sphère : r**2= (x-a)**2 + (y-b)**2 + (z-c)**2;
 		// trouver les paramètres de l'équation
-		float a = dot( p_ray.getDirection(), p_ray.getDirection() );
+		float a = glm::dot( p_ray.getDirection(), p_ray.getDirection() );
 
-		float b = 2 * dot( p_ray.getDirection(), ( p_ray.getOrigin() - _center ) );
+		float b = 2 * glm::dot( p_ray.getDirection(), ( p_ray.getOrigin() - _center ) );
 
-		float c = dot( ( p_ray.getOrigin() - _center ), ( p_ray.getOrigin() - _center ) ) - _radius * _radius;
+		float c = glm::dot( ( p_ray.getOrigin() - _center ), ( p_ray.getOrigin() - _center ) ) - _radius * _radius;
 
 		// calcul du discriminant
 		float delta = b * b - 4 * a * c;
