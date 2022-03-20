@@ -7,6 +7,7 @@ namespace RT_ISICG
 		float t;
 		if ( _geometry.intersect( p_ray, t ) )
 		{
+			if ( t < p_tMin || t > p_tMax ) { return false; }
 			p_hitRecord._point	= p_ray.pointAtT( t );
 			p_hitRecord._normal = _geometry.getNormale();
 			p_hitRecord.faceNormal( p_ray.getDirection() );

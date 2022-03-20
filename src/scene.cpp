@@ -58,7 +58,7 @@ namespace RT_ISICG
 		bool  hit  = false;
 		for ( const ObjectMapPair & object : _objectMap )
 		{
-			if ( object.second->intersect( p_ray, p_tMin, tMax, p_hitRecord ) )
+			if ( object.second->intersect( p_ray, p_tMin, p_tMax, p_hitRecord ) )
 			{
 				tMax = p_hitRecord._distance; // update tMax to conserve the nearest hit
 				hit	 = true;
