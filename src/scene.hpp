@@ -32,6 +32,9 @@ namespace RT_ISICG
 
 		// Check for nearest intersection between p_tMin and p_tMax : if found fill p_hitRecord.
 		bool intersect( const Ray & p_ray, const float p_tMin, const float p_tMax, HitRecord & p_hitRecord ) const;
+		
+		// TP2_Exo 5_1 :
+		bool intersectAny( const Ray & p_ray, const float p_tMin, const float p_tMax ) const;
 
 	  private:
 		void _addObject( BaseObject * p_object );

@@ -18,6 +18,17 @@ namespace RT_ISICG
 		}
 		return false;
 	}
+
+	// TP2_Exo 5_1 :
+	bool Plane::intersectAny( const Ray & p_ray, const float p_tMin, const float p_tMax ) const 
+	{
+		float t;
+		if ( _geometry.intersect( p_ray, t ) ) { 
+			return true; 
+		}
+		return false;
+	}
+
 } // namespace RT_ISICG
 
 

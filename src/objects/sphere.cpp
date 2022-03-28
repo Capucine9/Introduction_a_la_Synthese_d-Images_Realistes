@@ -24,4 +24,15 @@ namespace RT_ISICG
 		return false;
 	}
 
+	//TP2_Exo 5_1 :
+	bool Sphere::intersectAny( const Ray & p_ray, const float p_tMin, const float p_tMax ) const
+	{
+		float t1;
+		float t2;
+		if ( _geometry.intersect( p_ray, t1, t2 ) and t1 >= p_tMin ) { 
+			return true; 
+		}
+		return false;
+	}
+
 } // namespace RT_ISICG

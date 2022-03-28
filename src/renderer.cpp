@@ -78,6 +78,9 @@ namespace RT_ISICG
 		}*/
 
 		
+		//TP3_Exo 1
+		#pragma omp parallel for
+
 		// TP1_Exo 5
 		for ( int j = 0; j < height; j++ )
 		{
@@ -87,21 +90,21 @@ namespace RT_ISICG
 
 				for ( int k = 0; k < ( _nbPixelSamples ); k++ )
 				{
-					float random_i = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
-					float random_j = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
+					float random_i = randomFloat();
+					float random_j = randomFloat();
 
 					Ray ray
 						= p_camera->generateRay( float( i + random_i ) / ( width - 1 ),
 												 float( j + random_j ) / ( height - 1 ) );
 
-					moy_color += _integrator->Li( p_scene, ray, 0.001f, 1000.0f );
+					moy_color += _integrator->Li( p_scene, ray, 0.f, 1000.0f );
 				}
 				
 				moy_color = moy_color * (1.f / _nbPixelSamples);
 				p_texture.setPixel( i, j, moy_color );
 
 				// TP2_Exo 3_3 :
-				//p_texture.setPixel( i, j, glm::clamp( moy_color, Vec3f( 0.f, 0.f, 0.f ), Vec3f( 1.f, 1.f, 1.f ) ) );
+				p_texture.setPixel( i, j, glm::clamp( moy_color, Vec3f( 0.f, 0.f, 0.f ), Vec3f( 1.f, 1.f, 1.f ) ) );
 			}
 			progressBar.next();
 

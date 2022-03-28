@@ -11,7 +11,7 @@ namespace RT_ISICG
 
 		p_t = ( -glm::dot( _normale, p_ray.getOrigin() ) - d ) / glm::dot( _normale, p_ray.getDirection() );
 
-		if ( p_t < 0 ) { 
+		if ( p_t < 1e-6f or ( glm::dot( _normale, p_ray.getDirection() ) ==0 ) ) { 
 			return false; 
 		}
 

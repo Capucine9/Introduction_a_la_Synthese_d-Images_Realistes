@@ -17,7 +17,7 @@ namespace RT_ISICG
 		scene.init();
 
 		// Create a perspective camera.
-		PerspectiveCamera camera( float( imgWidth ) / imgHeight );
+		//PerspectiveCamera camera( float( imgWidth ) / imgHeight );
 
 		//TP1_Exo 4_2 :
 		//PerspectiveCamera camera(Vec3f( 0.f, 0.f, -2.f ), Vec3f( 0.f, 0.f, 79.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float(imgWidth)/imgHeight);
@@ -25,12 +25,21 @@ namespace RT_ISICG
 		//PerspectiveCamera camera( Vec3f( 0.f, 1.f, 0.f ), Vec3f( 0.f, 1.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float(imgWidth)/imgHeight);
 		//PerspectiveCamera camera( Vec3f( 4.f, -1.f, 0.f ), Vec3f( -1.f, -1.f, 2.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float(imgWidth)/imgHeight);
 
+		// TP3 Recul de la camera 
+		PerspectiveCamera camera( Vec3f( 0.1f, 0.f, -2.f ), Vec3f( 0.f, 0.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
 
 		// Create and setup the renderer.
 		Renderer renderer;
 		renderer.setIntegrator( IntegratorType::DIRECT_LIGHT );
 		renderer.setBackgroundColor( GREY );
-		renderer.setNbPixelSamples( 100 );
+
+		// TP3_Exo 2_5 :
+		// Suppression Anti-aliasing
+		renderer.setNbPixelSamples( 1 );
+
+		// TP1_Exo 5 :
+		// Anti-aliasing
+		//renderer.setNbPixelSamples( 100 );
 
 		// Launch rendering.
 		std::cout << "Rendering..." << std::endl;

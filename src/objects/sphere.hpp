@@ -23,6 +23,9 @@ namespace RT_ISICG
 								const float p_tMax,
 								HitRecord & p_hitRecord ) const override;
 
+		// TP2_Exo 5_1 :
+		bool		 intersectAny( const Ray & p_ray, const float p_tMin, const float p_tMax ) const; 
+
 	  private:
 		SphereGeometry _geometry;
 	};
