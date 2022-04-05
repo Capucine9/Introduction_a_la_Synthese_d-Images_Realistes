@@ -9,13 +9,13 @@ namespace RT_ISICG
 	{
 	  public:
 		QuadLight( const Vec3f p_position,
-				   const Vec3f p_u,
-				   const Vec3f p_v,
+				   const Vec3f _u,
+				   const Vec3f _v,
 				   const Vec3f p_color,
 				   const float p_power = 1.f )
-			: BaseLight( p_color, p_power ), _position( p_position ), _u( p_u ), _v( p_v )
+			: BaseLight( p_color, p_power ), _position( p_position ), _u( _u ), _v( _v )
 		{
-			_area = glm::length(p_u) * glm::length(p_v);
+			_area = glm::length(_u) * glm::length(_v);
 			_n	  = glm::cross( _u, _v );
 			_n	  = glm::normalize( _n );
 		}
@@ -27,11 +27,12 @@ namespace RT_ISICG
 		Vec3f _u = VEC3F_ZERO;
 		Vec3f _v = VEC3F_ZERO;
 		Vec3f _n = VEC3F_ZERO;
-		float _area	= 1.f;
+		float _area	= 0.f;
 
 	};
 
 } // namespace RT_ISICG
 
 #endif // __RT_ISICG_POINT_LIGHT__
+
 

@@ -16,16 +16,17 @@ namespace RT_ISICG
 		// Calcul distance et PDF
 		float distance = glm::length( direction );
 
-		float inv_area	  = 1 / _area;
+		direction = glm::normalize( direction );
+
+		float inv_area	  = 1.f / _area;
 		float cos		  = glm::dot( _n, direction );
 		float facteur_geo = ( distance * distance ) / cos;
 		float pdf		  = inv_area * facteur_geo;
 
 		Vec3f radiance = _color * _power / pdf;
 
-		direction = glm::normalize( direction );
-
 		return LightSample( direction, distance, radiance, pdf );
 	}
 
 } // namespace RT_ISICG
+
