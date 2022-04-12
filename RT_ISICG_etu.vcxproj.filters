@@ -181,5 +181,11 @@
     <ClInclude Include="src\lights\QuadLight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\materials\lambert_material.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\brdfs\lambert_brdf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
