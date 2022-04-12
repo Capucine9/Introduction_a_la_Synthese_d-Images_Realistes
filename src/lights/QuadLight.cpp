@@ -7,8 +7,8 @@ namespace RT_ISICG
 	LightSample QuadLight::sample( const Vec3f & p_point ) const
 	{
 		// Génération d'une position aléatoire sur le quad
-		float u_alea		= randomFloat() * _u.x;
-		float v_alea		= randomFloat() * _v.z;
+		Vec3f u_alea		= randomFloat() * _u;
+		Vec3f v_alea		= randomFloat() * _v;
 		Vec3f position_alea = Vec3f( _position + u_alea + v_alea );
 
 		Vec3f direction = position_alea - p_point;

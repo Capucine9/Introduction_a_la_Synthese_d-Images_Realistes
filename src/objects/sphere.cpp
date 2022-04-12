@@ -29,7 +29,7 @@ namespace RT_ISICG
 	{
 		float t1;
 		float t2;
-		if ( _geometry.intersect( p_ray, t1, t2 ) and t1 >= p_tMin ) { 
+		if ( _geometry.intersect( p_ray, t1, t2 ) && t1 < p_tMax &&  t1 > p_tMin && t1 < p_tMax ) { 
 			return true; 
 		}
 		return false;

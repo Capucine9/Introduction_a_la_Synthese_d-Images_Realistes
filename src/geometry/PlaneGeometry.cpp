@@ -8,12 +8,12 @@ namespace RT_ISICG
 		float c = _normale.z;
 
 		float d = _point.x * (-_normale.x) + _point.y * (-_normale.y) + _point.z * (-_normale.z);
+		float den = glm::dot( _normale, p_ray.getDirection() );
 
-		p_t = ( -glm::dot( _normale, p_ray.getOrigin() ) - d ) / glm::dot( _normale, p_ray.getDirection() );
+		if ( fabsf( den ) < 1e-6f ) { return false; }
 
-		if ( p_t < 1e-6f or ( glm::dot( _normale, p_ray.getDirection() ) ==0 ) ) { 
-			return false; 
-		}
+		p_t = ( -glm::dot( _normale, p_ray.getOrigin() ) - d ) / den;
+
 
 		return true;
 	}

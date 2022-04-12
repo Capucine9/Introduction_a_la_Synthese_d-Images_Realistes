@@ -32,9 +32,14 @@ namespace RT_ISICG
 
 		// Add materials.
 		_addMaterial( new ColorMaterial( "Blue", BLUE ) );
+		// TP4
+		_addMaterial( new ColorMaterial( "Grey", GREY ) );
 
 		// Link objects and materials.
-		_attachMaterialToObject( "Blue", "Sphere1" );
+		//_attachMaterialToObject( "Blue", "Sphere1" );
+		
+		// TP4 :
+		_attachMaterialToObject( "Grey", "Sphere1" );
 
 
 		// TP2_Ex 1_3 :
@@ -54,7 +59,10 @@ namespace RT_ISICG
 
 		// TP3_Ex 2_4 :
 		// Add QuadLight
-		_addLight( new QuadLight(Vec3f( 1.f, 10.f, 2.f ), Vec3f( -2.f, 0.f, 0.f ), Vec3f( 0.f, 0.f, 2.f ), Vec3f( 1.f, 1.f, 1.f ), 20.f ) );
+		//_addLight( new QuadLight(Vec3f( 1.f, 10.f, 2.f ), Vec3f( -2.f, 0.f, 0.f ), Vec3f( 0.f, 0.f, 2.f ), Vec3f( 1.f, 1.f, 1.f ), 20.f ) );
+
+		// TP4 :
+		_addLight( new PointLight( Vec3f( 0.f, 0.f, -2.f ), Vec3f( 1.f, 1.f, 1.f ), 60.f ) );
 	}
 
 	bool Scene::intersect( const Ray & p_ray, const float p_tMin, const float p_tMax, HitRecord & p_hitRecord ) const
@@ -65,7 +73,7 @@ namespace RT_ISICG
 		{
 			if ( object.second->intersect( p_ray, p_tMin, p_tMax, p_hitRecord ) )
 			{
-				tMax = p_hitRecord._distance; // update tMax to conserve the nearest hit
+				tMax = p_hitRecord._distance; 
 				hit	 = true;
 			}
 		}
@@ -75,7 +83,6 @@ namespace RT_ISICG
 	// TP2_Exo 5_1 :
 	bool Scene::intersectAny( const Ray & p_ray, const float p_tMin, const float p_tMax ) const
 	{
-		float tMax = p_tMax;
 		bool  hit  = false;
 		for ( const ObjectMapPair & object : _objectMap )
 		{

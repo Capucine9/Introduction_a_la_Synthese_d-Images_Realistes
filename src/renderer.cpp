@@ -97,7 +97,7 @@ namespace RT_ISICG
 						= p_camera->generateRay( float( i + random_i ) / ( width - 1 ),
 												 float( j + random_j ) / ( height - 1 ) );
 
-					moy_color += _integrator->Li( p_scene, ray, 0.f, 1000.0f );
+					moy_color += _integrator->Li( p_scene, ray, 1e-6f, 1000.0f );
 				}
 				
 				moy_color = moy_color * (1.f / _nbPixelSamples);
