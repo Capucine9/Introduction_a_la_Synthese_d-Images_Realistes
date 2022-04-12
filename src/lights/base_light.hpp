@@ -14,13 +14,16 @@ namespace RT_ISICG
 
 		inline const Vec3f & getFlatColor() const { return _color; }
 
+		// TP3_Exo 3_1 :
+		inline const bool & getSurface() const { return _isSurface; }
+
 		virtual LightSample sample( const Vec3f & p_point ) const = 0;
 
 	  protected:
 		// TODO: give a name, like objects and materials
 		Vec3f _color = WHITE;
 		float _power = 1.f;
-		bool  _isSurface = True;
+		bool  _isSurface = true;
 	};
 
 } // namespace RT_ISICG

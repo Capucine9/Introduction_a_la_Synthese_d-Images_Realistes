@@ -25,6 +25,9 @@ namespace RT_ISICG
 							   const float	 p_tMin,
 							   const float	 p_tMax ) const;
 
+	  protected:
+		int _nbLightSamples = 32;
+			 
 	};
 
 } // namespace RT_ISICG

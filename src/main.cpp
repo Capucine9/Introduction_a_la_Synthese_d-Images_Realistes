@@ -35,7 +35,7 @@ namespace RT_ISICG
 
 		// TP3_Exo 2_5 :
 		// Suppression Anti-aliasing
-		renderer.setNbPixelSamples( 1 );
+		renderer.setNbPixelSamples( 32 );
 
 		// TP1_Exo 5 :
 		// Anti-aliasing
