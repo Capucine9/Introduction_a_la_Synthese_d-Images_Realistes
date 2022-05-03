@@ -8,11 +8,11 @@ namespace RT_ISICG
 		float c = _normale.z;
 
 		float d = _point.x * (-_normale.x) + _point.y * (-_normale.y) + _point.z * (-_normale.z);
-		float den = glm::dot( _normale, p_ray.getDirection() );
+		float denominateur = glm::dot( _normale, p_ray.getDirection() );
 
-		if ( fabsf( den ) < 1e-6f ) { return false; }
+		if ( fabsf( denominateur ) < 1e-6f ) { return false; } // denominateur == 0
 
-		p_t = ( -glm::dot( _normale, p_ray.getOrigin() ) - d ) / den;
+		p_t = ( -glm::dot( _normale, p_ray.getOrigin() ) - d ) / denominateur;
 
 
 		return true;

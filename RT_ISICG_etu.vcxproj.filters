@@ -101,6 +101,18 @@
     <ClCompile Include="src\lights\QuadLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\brdfs\PhongBRDF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\materials\PlasticMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\brdfs\MicroFaceBRDF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\materials\CookTorranceMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\defines.hpp">
@@ -185,6 +197,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\brdfs\lambert_brdf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\brdfs\PhongBRDF.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\materials\PlasticMaterial.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\brdfs\MicroFaceBRDF.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\materials\CookTorranceMaterial.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

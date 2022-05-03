@@ -141,6 +141,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\materials\CookTorranceMaterial.cpp" />
+    <ClCompile Include="src\brdfs\MicroFaceBRDF.cpp" />
+    <ClCompile Include="src\materials\PlasticMaterial.cpp" />
+    <ClCompile Include="src\brdfs\PhongBRDF.cpp" />
     <ClCompile Include="src\lights\QuadLight.cpp" />
     <ClCompile Include="src\integrators\DirectLightingIntegrator.cpp" />
     <ClCompile Include="src\lights\PointLight.cpp" />
@@ -157,6 +161,10 @@
     <ClCompile Include="src\utils\console_progress_bar.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\materials\CookTorranceMaterial.hpp" />
+    <ClInclude Include="src\brdfs\MicroFaceBRDF.hpp" />
+    <ClInclude Include="src\materials\PlasticMaterial.hpp" />
+    <ClInclude Include="src\brdfs\PhongBRDF.hpp" />
     <ClInclude Include="src\brdfs\lambert_brdf.hpp" />
     <ClInclude Include="src\lights\QuadLight.hpp" />
     <ClInclude Include="src\integrators\DirectLightingIntegrator.hpp" />

@@ -1,5 +1,7 @@
 #include "scene.hpp"
 #include "materials/color_material.hpp"
+#include "materials/lambert_material.hpp"
+#include "materials/Plasticmaterial.hpp"
 #include "objects/sphere.hpp"
 #include "objects/Plane.hpp"
 #include "lights/PointLight.hpp"
@@ -31,36 +33,51 @@ namespace RT_ISICG
 		_addObject( new Sphere( "Sphere1", Vec3f( 0.f, 0.f, 3.f ), 1.f ) );
 
 		// Add materials.
+		_addMaterial( new ColorMaterial( "Red", RED ) );
 		_addMaterial( new ColorMaterial( "Blue", BLUE ) );
 		// TP4
 		_addMaterial( new ColorMaterial( "Grey", GREY ) );
 
+		////////////////////////////////////////////////
+
+		// TP4_Ex 1_2 :
+		_addMaterial( new LambertMaterial( "LambertSphere", GREY ) );
+		// TP4_Ex 3 :
+		_addMaterial( new PlasticMaterial( "PhongSphere", GREY * 0.7f, GREY * 0.3f, 64.f) );
+
 		// Link objects and materials.
 		//_attachMaterialToObject( "Blue", "Sphere1" );
-		
 		// TP4 :
-		_attachMaterialToObject( "Grey", "Sphere1" );
+		//_attachMaterialToObject( "Grey", "Sphere1" );
+		// TP4_Ex 1_2 :
+		//_attachMaterialToObject( "LambertSphere", "Sphere1" );
+		// TP4_Ex 3 :
+		_attachMaterialToObject( "PhongSphere", "Sphere1" );
 
+		////////////////////////////////////////////////
 
 		// TP2_Ex 1_3 :
 		// Add objects.
 		_addObject( new Plane( "Plan1", Vec3f( 0.f, -2.f, 0.f ), Vec3f( 0.f, 1.f, 0.f ) ) );
 
 		// Add materials.
-		_addMaterial( new ColorMaterial( "Red", RED ) );
+		// TP4_Ex 1_2 :
+		_addMaterial( new LambertMaterial( "LambertPlan1", RED ) );
 
 		// Link objects and materials.
-		_attachMaterialToObject( "Red", "Plan1" );
+		//_attachMaterialToObject( "Red", "Plan1" );
+		// TP4_Ex 1_2 :
+		_attachMaterialToObject( "LambertPlan1", "Plan1" );
+
+
+		////////////////////////////////////////////////
 
 
 		// TP2_Ex 3_2 :
 		// Add lights
 		//_addLight( new PointLight( Vec3f( 1.f, 10.f, 1.f ), Vec3f( 1.f, 1.f, 1.f ), 100.f ) );
-
 		// TP3_Ex 2_4 :
-		// Add QuadLight
 		//_addLight( new QuadLight(Vec3f( 1.f, 10.f, 2.f ), Vec3f( -2.f, 0.f, 0.f ), Vec3f( 0.f, 0.f, 2.f ), Vec3f( 1.f, 1.f, 1.f ), 20.f ) );
-
 		// TP4 :
 		_addLight( new PointLight( Vec3f( 0.f, 0.f, -2.f ), Vec3f( 1.f, 1.f, 1.f ), 60.f ) );
 	}
