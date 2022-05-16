@@ -107,7 +107,7 @@
     <ClCompile Include="src\materials\PlasticMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\brdfs\MicroFaceBRDF.cpp">
+    <ClCompile Include="src\brdfs\CookTorrance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\materials\CookTorranceMaterial.cpp">
@@ -205,7 +205,7 @@
     <ClInclude Include="src\materials\PlasticMaterial.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\brdfs\MicroFaceBRDF.hpp">
+    <ClInclude Include="src\brdfs\CookTorranceBRDF.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\materials\CookTorranceMaterial.hpp">
