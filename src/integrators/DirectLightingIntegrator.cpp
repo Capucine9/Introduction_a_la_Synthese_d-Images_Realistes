@@ -9,7 +9,7 @@ namespace RT_ISICG
 													 HitRecord &   hitRecord,
 													 const float   p_tMin,
 													 const float   p_tMax ) const 
-	{
+	 {
 		Vec3f somme_directLighting = Vec3f( 0.f, 0.f, 0.f );
 
 		// TP3_Exo 3_2 :
@@ -28,7 +28,7 @@ namespace RT_ISICG
 
 				// TP2_Exo 5_2 :
 				float tMax = ls._distance;
-				if ( !p_scene.intersectAny( rayon_ombre, SHADOW_EPSILON, tMax ) )
+				if ( !p_scene.intersectAny( rayon_ombre, p_tMin, tMax ) )
 				{
 					float costheta = glm::dot( hitRecord._normal, ls._direction );
 					// TP4_Exo 1_2 : (modifier le getFlatColor() par shade())
@@ -49,7 +49,7 @@ namespace RT_ISICG
 		}
 		return somme_directLighting;
 
-	}
+	 }
 	
 
 	Vec3f DirectLightingIntegrator::Li( const Scene & p_scene,
@@ -58,7 +58,7 @@ namespace RT_ISICG
 								  const float	p_tMax ) const
 	{
 		HitRecord hitRecord;
-		if ( p_scene.intersect( p_ray, p_tMin, p_tMax, hitRecord ) ) 
+		if (p_scene.intersect( p_ray, p_tMin, p_tMax, hitRecord )) 
 		{
 			return _directLighting( p_scene, p_ray, hitRecord, p_tMin, p_tMax );
 		}

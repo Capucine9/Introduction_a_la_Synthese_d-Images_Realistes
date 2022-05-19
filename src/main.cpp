@@ -26,14 +26,16 @@ namespace RT_ISICG
 		//PerspectiveCamera camera( Vec3f( 4.f, -1.f, 0.f ), Vec3f( -1.f, -1.f, 2.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float(imgWidth)/imgHeight);
 
 		// TP3 Recul de la camera 
-		PerspectiveCamera camera( Vec3f( 0.1f, 0.f, -2.f ), Vec3f( 0.f, 0.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
+		//PerspectiveCamera camera( Vec3f( 0.1f, 0.f, -2.f ), Vec3f( 0.f, 0.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
 
 		// TP5 Configuration de la scene
-	//-->PerspectiveCamera camera( Vec3f( 0.f, 2.f, -6.f ), Vec3f( 0.f, 0.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
+		//PerspectiveCamera camera( Vec3f( 0.f, 2.f, -6.f ), Vec3f( 0.f, 0.f, 1.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
+		// Pour voir le plan vert situé en hauteur
+		PerspectiveCamera camera(Vec3f( 0.f, 2.f, -6.f ), Vec3f( 0.f, 0.f, 80.f ), Vec3f( 0.f, 1.f, 0.f ), 60.f, float( imgWidth ) / imgHeight );
 
 		// Create and setup the renderer.
 		Renderer renderer;
-		renderer.setIntegrator( IntegratorType::DIRECT_LIGHT );
+		renderer.setIntegrator( IntegratorType::WHITTED );
 		renderer.setBackgroundColor( GREY );
 
 		// TP3_Exo 2_5 :

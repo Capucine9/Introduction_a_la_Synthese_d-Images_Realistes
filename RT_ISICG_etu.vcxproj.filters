@@ -113,6 +113,12 @@
     <ClCompile Include="src\materials\CookTorranceMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\integrators\WhittedIntegrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\materials\MirrorMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\defines.hpp">
@@ -209,6 +215,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\materials\CookTorranceMaterial.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\WhittedIntegrator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\materials\MirrorMaterial.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
