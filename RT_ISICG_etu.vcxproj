@@ -144,11 +144,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\geometry\triangle_mesh_geometry.cpp" />
-    <ClCompile Include="src\materials\MirrorMaterial.cpp" />
-    <ClCompile Include="src\materials\CookTorranceMaterial.cpp" />
-    <ClCompile Include="src\brdfs\CookTorrance.cpp" />
-    <ClCompile Include="src\materials\PlasticMaterial.cpp" />
-    <ClCompile Include="src\brdfs\PhongBRDF.cpp" />
     <ClCompile Include="src\lights\QuadLight.cpp" />
     <ClCompile Include="src\integrators\DirectLightingIntegrator.cpp" />
     <ClCompile Include="src\lights\PointLight.cpp" />
@@ -165,7 +160,6 @@
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\utils\console_progress_bar.cpp" />
     <ClCompile Include="src\integrators\WhittedIntegrator.cpp" />
-    <ClCompile Include="src\materials\TransparentMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\geometry\triangle_mesh_geometry.hpp" />
