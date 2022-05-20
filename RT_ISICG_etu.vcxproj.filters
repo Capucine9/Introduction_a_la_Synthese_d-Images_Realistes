@@ -119,6 +119,15 @@
     <ClCompile Include="src\materials\MirrorMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\materials\TransparentMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\triangle_mesh_geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\triangle_mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\defines.hpp">
@@ -221,6 +230,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\materials\MirrorMaterial.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\materials\TransparentMaterial.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\geometry\triangle_mesh_geometry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\triangle_mesh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

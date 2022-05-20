@@ -21,7 +21,8 @@ namespace RT_ISICG
 							   const Ray &	 p_ray,
 							   const float	 p_tMin,
 							   const float	 p_tMax,
-							   int _nblimite) const;
+							   int			 _nblimite,
+							   bool			 interieurObj ) const;
 
 	  protected:
 		int _nbLightSamples = 32;
